@@ -1,14 +1,55 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import AssessmentLanding from "@/components/AssessmentLanding";
+import AssessmentFlow from "@/components/AssessmentFlow";
+import AssessmentResults from "@/components/AssessmentResults";
+
+type AppState = "landing" | "assessment" | "results";
 
 const Index = () => {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
-  );
+  const [currentState, setCurrentState] = useState<AppState>("landing");
+  const [assessmentData, setAssessmentData] = useState<Record<string, any>>({});
+
+  const handleStartAssessment = () => {
+    setCurrentState("assessment");
+  };
+
+  const handleAssessmentComplete = (responses: Record<string, any>) => {
+    setAssessmentData(responses);
+    setCurrentState("results");
+  };
+
+  const handleBackToLanding = () => {
+    setCurrentState("landing");
+  };
+
+  const handleRestart = () => {
+    setAssessmentData({});
+    setCurrentState("landing");
+  };
+
+  if (currentState === "landing") {
+    return <AssessmentLanding onStartAssessment={handleStartAssessment} />;
+  }
+
+  if (currentState === "assessment") {
+    return (
+      <AssessmentFlow 
+        onComplete={handleAssessmentComplete}
+        onBack={handleBackToLanding}
+      />
+    );
+  }
+
+  if (currentState === "results") {
+    return (
+      <AssessmentResults 
+        responses={assessmentData}
+        onRestart={handleRestart}
+      />
+    );
+  }
+
+  return null;
 };
 
 export default Index;

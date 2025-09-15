@@ -22,10 +22,18 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          light: "hsl(var(--primary-light))",
+          dark: "hsl(var(--primary-dark))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
+          light: "hsl(var(--secondary-light))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+          light: "hsl(var(--accent-light))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -35,9 +43,19 @@ export default {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
         },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+        neutral: {
+          DEFAULT: "hsl(var(--neutral))",
+          foreground: "hsl(var(--neutral-foreground))",
+        },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+          light: "hsl(var(--success-light))",
+        },
+        warning: {
+          DEFAULT: "hsl(var(--warning))",
+          foreground: "hsl(var(--warning-foreground))",
+          light: "hsl(var(--warning-light))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -47,16 +65,29 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
+        assessment: {
+          bg: "hsl(var(--assessment-bg))",
+          progress: "hsl(var(--progress-bg))",
+          question: "hsl(var(--question-bg))",
+          option: "hsl(var(--option-bg))",
+          "option-hover": "hsl(var(--option-hover))",
+          "option-selected": "hsl(var(--option-selected))",
         },
+      },
+      backgroundImage: {
+        "gradient-primary": "var(--gradient-primary)",
+        "gradient-assessment": "var(--gradient-assessment)",
+        "gradient-card": "var(--gradient-card)",
+        "gradient-hero": "var(--gradient-hero)",
+      },
+      boxShadow: {
+        "card": "var(--shadow-card)",
+        "assessment": "var(--shadow-assessment)",
+        "button": "var(--shadow-button)",
+      },
+      transitionTimingFunction: {
+        "smooth": "var(--transition-smooth)",
+        "bounce": "var(--transition-bounce)",
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -2,96 +2,216 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Conflict Navigation Assessment Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Professional Assessment Color Palette */
+    --background: 210 20% 98%;
+    --foreground: 215 25% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 215 25% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 215 25% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Assessment Brand Colors - Sophisticated Blues & Teals */
+    --primary: 210 90% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 210 85% 60%;
+    --primary-dark: 210 95% 35%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 195 85% 45%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 195 80% 60%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 180 75% 50%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 180 70% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Assessment UI Colors */
+    --muted: 210 15% 95%;
+    --muted-foreground: 215 20% 50%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --neutral: 210 10% 92%;
+    --neutral-foreground: 215 25% 25%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --success: 145 80% 42%;
+    --success-foreground: 0 0% 100%;
+    --success-light: 145 75% 85%;
 
-    --radius: 0.5rem;
+    --warning: 35 85% 55%;
+    --warning-foreground: 0 0% 100%;
+    --warning-light: 35 80% 90%;
 
-    --sidebar-background: 0 0% 98%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --border: 210 15% 88%;
+    --input: 210 15% 92%;
+    --ring: 210 90% 45%;
 
-    --sidebar-primary: 240 5.9% 10%;
+    --radius: 0.75rem;
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    /* Assessment Specific Colors */
+    --assessment-bg: 210 30% 96%;
+    --progress-bg: 210 20% 90%;
+    --question-bg: 0 0% 100%;
+    --option-bg: 210 10% 97%;
+    --option-hover: 210 25% 92%;
+    --option-selected: 210 90% 95%;
 
-    --sidebar-accent: 240 4.8% 95.9%;
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-assessment: linear-gradient(135deg, hsl(var(--primary-light)), hsl(var(--accent-light)));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 15% 98%));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary-dark)), hsl(var(--accent)));
 
-    --sidebar-accent-foreground: 240 5.9% 10%;
+    /* Shadows */
+    --shadow-card: 0 4px 25px -5px hsl(var(--primary) / 0.1);
+    --shadow-assessment: 0 8px 35px -8px hsl(var(--primary) / 0.15);
+    --shadow-button: 0 2px 15px -3px hsl(var(--primary) / 0.2);
 
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 215 30% 8%;
+    --foreground: 210 15% 92%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 215 25% 12%;
+    --card-foreground: 210 15% 92%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 215 25% 12%;
+    --popover-foreground: 210 15% 92%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 210 85% 55%;
+    --primary-foreground: 215 30% 8%;
+    --primary-light: 210 80% 65%;
+    --primary-dark: 210 90% 45%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 195 80% 55%;
+    --secondary-foreground: 215 30% 8%;
+    --secondary-light: 195 75% 65%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 180 70% 55%;
+    --accent-foreground: 215 30% 8%;
+    --accent-light: 180 65% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --muted: 215 20% 15%;
+    --muted-foreground: 215 15% 65%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --neutral: 215 15% 18%;
+    --neutral-foreground: 210 15% 85%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --success: 145 75% 50%;
+    --success-foreground: 215 30% 8%;
+    --success-light: 145 70% 20%;
+
+    --warning: 35 80% 60%;
+    --warning-foreground: 215 30% 8%;
+    --warning-light: 35 75% 20%;
+
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 215 30% 8%;
+
+    --border: 215 20% 20%;
+    --input: 215 20% 18%;
+    --ring: 210 85% 55%;
+
+    --assessment-bg: 215 25% 10%;
+    --progress-bg: 215 20% 15%;
+    --question-bg: 215 25% 12%;
+    --option-bg: 215 20% 15%;
+    --option-hover: 215 25% 20%;
+    --option-selected: 210 85% 20%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-assessment: linear-gradient(135deg, hsl(var(--primary-light)), hsl(var(--accent-light)));
+    --gradient-card: linear-gradient(145deg, hsl(215 25% 12%), hsl(215 20% 15%));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary-dark)), hsl(var(--accent)));
+
+    --shadow-card: 0 4px 25px -5px hsl(0 0% 0% / 0.3);
+    --shadow-assessment: 0 8px 35px -8px hsl(0 0% 0% / 0.4);
+    --shadow-button: 0 2px 15px -3px hsl(var(--primary) / 0.3);
   }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-['Inter'];
+    font-feature-settings: 'cv11', 'ss01';
+    font-variation-settings: 'opsz' 32;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+/* Assessment specific animations */
+@keyframes assessment-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes progress-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes pulse-gentle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.assessment-slide-in {
+  animation: assessment-slide-in 0.6s ease-out;
+}
+
+.progress-fill {
+  animation: progress-fill 0.8s ease-out;
+  transform-origin: left;
+}
+
+.pulse-gentle {
+  animation: pulse-gentle 2s ease-in-out infinite;
 }
 
 @layer base {
